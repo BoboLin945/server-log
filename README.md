@@ -15,7 +15,7 @@ Add new log : requests duration
 
 #### Clone repository
 ```
-$ git clone 
+$ git clone https://github.com/BoboLin945/server-log.git
 ```
 #### Install by npm
 ```
