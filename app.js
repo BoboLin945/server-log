@@ -4,10 +4,15 @@ const port = 3000
 
 // server-log
 const serverLog = function (req, res, next) {
-  const reqTime = new Date().toLocaleString()
+  const reqTime = new Date()
   const reqMethod = req.method
   const reqUrl = req.url
-  console.log(`${reqTime} | ${reqMethod} from ${reqUrl}`)
+  // response end
+  res.on('finish', () => {
+    const resTime = new Date()
+    const runTime = resTime - reqTime
+    console.log(`${reqTime.toLocaleString()} | ${reqMethod} from ${reqUrl} | total time : ${runTime} ms `)
+  })
   next()
 }
 
